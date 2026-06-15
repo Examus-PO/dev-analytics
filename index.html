@@ -85,8 +85,8 @@
   .res .tag.tminus{background:#EFEFF1;color:var(--ink);}
   .res .tag.tq{background:#EFEFF1;color:var(--gray);}
   .res ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:4px;}
-  .res li{font-size:13.5px;line-height:1.42;color:#3C3C42;padding-left:26px;position:relative;min-height:18px;}
-  .res li::before{content:'';position:absolute;left:0;top:2px;width:17px;height:17px;
+  .res li{font-size:13.5px;line-height:1.42;color:#3C3C42;padding-left:21px;position:relative;min-height:15px;}
+  .res li::before{content:'';position:absolute;left:0;top:3px;width:13px;height:13px;
     background-repeat:no-repeat;background-position:center;background-size:contain;}
   /* статусы: готово / в процессе / не готово */
   .res li.s-done::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%23E5F6EC' stroke='%231FA85A' stroke-width='2'/><path d='M7.5 12.5l3 3 6-6.5' fill='none' stroke='%231FA85A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");}
@@ -96,7 +96,7 @@
   /* легенда статусов */
   .status-legend{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 18px;font-size:13px;color:var(--gray);}
   .status-legend span{display:flex;align-items:center;gap:8px;font-weight:600;}
-  .status-legend .sd{width:18px;height:18px;background-repeat:no-repeat;background-position:center;background-size:contain;}
+  .status-legend .sd{width:15px;height:15px;background-repeat:no-repeat;background-position:center;background-size:contain;}
   .sd.g{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%23E5F6EC' stroke='%231FA85A' stroke-width='2'/><path d='M7.5 12.5l3 3 6-6.5' fill='none' stroke='%231FA85A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");}
   .sd.y{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%23FFF6CC' stroke='%23E0AF00' stroke-width='2'/><path d='M12 7v5.2l3.3 2' fill='none' stroke='%23E0AF00' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>");}
   .sd.r{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%23FFEAE9' stroke='%23FF1913' stroke-width='2'/><path d='M9 9l6 6M15 9l-6 6' fill='none' stroke='%23FF1913' stroke-width='2.2' stroke-linecap='round'/></svg>");}
@@ -162,8 +162,8 @@
         <div class="item done p-high"><div class="pr">10</div><div class="txt">Техническая нестабильность</div><div class="tick">✓ результат</div></div>
         <div class="item done p-high"><div class="pr">9</div><div class="txt">Информационная безопасность</div><div class="tick">✓ результат</div></div>
         <div class="item done p-high"><div class="pr">8</div><div class="txt">Размазывание ответственности или её отсутствие</div><div class="tick">✓ результат</div></div>
-        <div class="item p-high"><div class="pr">7</div><div class="txt">Legacy</div></div>
-        <div class="item p-high"><div class="pr">6</div><div class="txt">Нет «резервов» для роста</div></div>
+        <div class="item done p-high"><div class="pr">7</div><div class="txt">Legacy</div><div class="tick">● в работе</div></div>
+        <div class="item done p-high"><div class="pr">6</div><div class="txt">Нет «резервов» для роста</div><div class="tick">● в работе</div></div>
         <div class="item dim"><div class="pr">5</div><div class="txt">100+ часов в трекере, ½ команды, удобное хранилище</div></div>
         <div class="item dim"><div class="pr">4</div><div class="txt">Нет управляемости для принятия решений / не вижу данных</div></div>
         <div class="item done"><div class="pr">2</div><div class="txt">Скрытые конфликты</div><div class="tick">✓ результат</div></div>
@@ -226,7 +226,7 @@
     <div class="res wide">
       <div class="rhead"><div class="rnum">3</div><div class="rtitle">Техническая стабильность</div><span class="tag tminus">– приоритет 10</span></div>
       <ul>
-        <li class="s-done">Раньше за этим стояло: продукт может упасть в любой момент. Проведён аудит продукта, выявлены уязвимости</li>
+        <li class="s-done">Проведён аудит продукта, выявлены уязвимости</li>
         <li class="s-done">Подготовлены дорожные карты сотрудников, в которые вшиты результаты устранения уязвимостей</li>
         <li class="s-done">Поддержанием работы продукта занимается трио: Техлид + Продакт + PM</li>
         <li class="s-done">Появилось планирование нагрузок, выстроен процесс нагрузочного тестирования внутри разработки</li>
@@ -240,6 +240,9 @@
         <li class="s-done">Осознана проблема в части работы с ПДн</li>
         <li class="s-done">Найден экспертный консультант в части ИБ и работы с ПДн</li>
         <li class="s-prog">Ведутся переговоры с КИТ по консультированию</li>
+        <li class="s-prog">Обновляются пользовательские соглашения и позиция компании к обработке данных</li>
+        <li class="s-done">Подготовлены скрипты для отдела продаж — как отвечать на сложные вопросы</li>
+        <li class="s-done">Сформулирована позиция по ИБ и аттестации для запросов клиентов</li>
       </ul>
     </div>
 
@@ -298,7 +301,7 @@
       <ul>
         <li class="s-prog">Команда руководителей в процессе пересборки под новые задачи и зоны ответственности</li>
       </ul>
-      <span class="metric">★ Было 9 → сейчас 6</span>
+      <span class="metric">★ Было 8 → сейчас 6</span>
     </div>
 
   </div>
