@@ -84,9 +84,19 @@
   .res .tag{font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:999px;background:var(--badge-bg);color:var(--orange);}
   .res .tag.tminus{background:#EFEFF1;color:var(--ink);}
   .res .tag.tq{background:#EFEFF1;color:var(--gray);}
-  .res ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px;}
-  .res li{font-size:13.5px;line-height:1.42;color:#3C3C42;padding-left:18px;position:relative;}
-  .res li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--orange);}
+  .res ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+  .res li{font-size:13.5px;line-height:1.42;color:#3C3C42;padding-left:20px;position:relative;}
+  .res li::before{content:'';position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;background:var(--gray2);}
+  /* статусы: готово / в процессе / не готово */
+  .res li.s-done::before{background:#1FA85A;}
+  .res li.s-prog::before{background:#FFC700;}
+  .res li.s-todo::before{background:#FF1913;}
+
+  /* легенда статусов */
+  .status-legend{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 18px;font-size:13px;color:var(--gray);}
+  .status-legend span{display:flex;align-items:center;gap:8px;font-weight:600;}
+  .status-legend .sd{width:12px;height:12px;border-radius:50%;}
+  .sd.g{background:#1FA85A;} .sd.y{background:#FFC700;} .sd.r{background:#FF1913;}
   .res .metric{display:inline-flex;align-items:center;gap:6px;margin-top:12px;
     background:var(--badge-bg);color:var(--orange);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;}
   .res.wide{grid-column:1 / -1;}
@@ -128,11 +138,11 @@
     <div class="col col-plus">
       <div class="col-head"><div class="col-sign">+</div><div class="name">Сильные стороны<small>что у нас уже работает</small></div></div>
       <div class="col-body">
-        <div class="item p-high"><div class="pr">10</div><div class="txt">Большая база постоянных клиентов</div></div>
-        <div class="item p-high"><div class="pr">9</div><div class="txt">Масштабируемая и сходящаяся бизнес-модель</div></div>
+        <div class="item done p-high"><div class="pr">10</div><div class="txt">Большая база постоянных клиентов</div><div class="tick">● в работе</div></div>
+        <div class="item done p-high"><div class="pr">9</div><div class="txt">Масштабируемая и сходящаяся бизнес-модель</div><div class="tick">● в работе</div></div>
         <div class="item done p-high"><div class="pr">8</div><div class="txt">Скорость принятия решений</div><div class="tick">✓ результат</div></div>
         <div class="item done p-high"><div class="pr">7</div><div class="txt">Устойчивые и масштабируемые процессы сопровождения клиентов</div><div class="tick">✓ результат</div></div>
-        <div class="item p-high"><div class="pr">6</div><div class="txt">Команда профессионалов</div></div>
+        <div class="item done p-high"><div class="pr">6</div><div class="txt">Команда профессионалов</div><div class="tick">✓ результат</div></div>
         <div class="item dim"><div class="pr">5</div><div class="txt">Временный эксклюзив на ЕБС + ФСТЭК</div></div>
         <div class="item dim"><div class="pr">4</div><div class="txt">Амбициозность</div></div>
         <div class="item dim"><div class="pr">3</div><div class="txt">Собственное ПО</div></div>
@@ -185,81 +195,107 @@
   <!-- ===== RESULTS ===== -->
   <div class="section-title">
     <span class="bar"></span><h2>Что сделали по каждому пункту</h2>
-    <span class="hint">8 направлений · команда агентов изменений</span>
+    <span class="hint">11 направлений · команда агентов изменений</span>
+  </div>
+
+  <div class="status-legend">
+    <span><span class="sd g"></span>Готово — есть артефакт</span>
+    <span><span class="sd y"></span>В процессе</span>
+    <span><span class="sd r"></span>Не готово</span>
   </div>
 
   <div class="results">
 
     <div class="res">
-      <div class="rhead"><div class="rnum">1</div><div class="rtitle">Бекофис</div><span class="tag">+ процессы</span></div>
+      <div class="rhead"><div class="rnum">1</div><div class="rtitle">База постоянных клиентов</div><span class="tag">+ приоритет 10</span></div>
       <ul>
-        <li>Бекофис пересобран: выстраиваются процессы, появилась прозрачность в коммуникации</li>
-        <li>Юристы тесно работают со смежными отделами и погружаются в продукт</li>
+        <li class="s-prog">На этапе проработки</li>
       </ul>
     </div>
 
     <div class="res">
-      <div class="rhead"><div class="rnum">2</div><div class="rtitle">Информационная безопасность</div><span class="tag tminus">– приоритет 9</span></div>
+      <div class="rhead"><div class="rnum">2</div><div class="rtitle">Масштабируемая бизнес-модель</div><span class="tag">+ приоритет 9</span></div>
       <ul>
-        <li>Налаживается работа внутри компании в части ПДн</li>
-        <li>Обновляются пользовательские соглашения и позиция компании к обработке данных</li>
-        <li>Подготовлены скрипты для отдела продаж — как отвечать на сложные вопросы</li>
-        <li>Сформулирована позиция по ИБ и аттестации для запросов клиентов</li>
+        <li class="s-prog">На этапе проработки</li>
       </ul>
     </div>
 
     <div class="res wide">
       <div class="rhead"><div class="rnum">3</div><div class="rtitle">Техническая стабильность</div><span class="tag tminus">– приоритет 10</span></div>
       <ul>
-        <li>Раньше за этим стояло: продукт может упасть в любой момент. Проведён аудит продукта, выявлены уязвимости</li>
-        <li>Подготовлены дорожные карты сотрудников, в которые вшиты результаты устранения уязвимостей</li>
-        <li>Поддержанием работы продукта занимается трио: Техлид + Продакт + PM</li>
-        <li>Появилось планирование нагрузок, выстроен процесс нагрузочного тестирования внутри разработки</li>
+        <li class="s-done">Раньше за этим стояло: продукт может упасть в любой момент. Проведён аудит продукта, выявлены уязвимости</li>
+        <li class="s-done">Подготовлены дорожные карты сотрудников, в которые вшиты результаты устранения уязвимостей</li>
+        <li class="s-done">Поддержанием работы продукта занимается трио: Техлид + Продакт + PM</li>
+        <li class="s-done">Появилось планирование нагрузок, выстроен процесс нагрузочного тестирования внутри разработки</li>
       </ul>
       <span class="metric">★ За период ЕБС упало всего 1 раз</span>
     </div>
 
     <div class="res">
-      <div class="rhead"><div class="rnum">4</div><div class="rtitle">Зоны ответственности</div><span class="tag tminus">– приоритет 8</span></div>
+      <div class="rhead"><div class="rnum">4</div><div class="rtitle">Информационная безопасность</div><span class="tag tminus">– приоритет 9</span></div>
       <ul>
-        <li>Проведены встречи 1:1 с представителями ТОПов</li>
-        <li>Зафиксированы зоны ответственности</li>
-        <li>По части сотрудников подготовлены грейды</li>
+        <li class="s-done">Осознана проблема в части работы с ПДн</li>
+        <li class="s-done">Найден экспертный консультант в части ИБ и работы с ПДн</li>
+        <li class="s-prog">Ведутся переговоры с КИТ по консультированию</li>
       </ul>
     </div>
 
     <div class="res">
-      <div class="rhead"><div class="rnum">5</div><div class="rtitle">Скорость принятия решений</div><span class="tag">+ приоритет 8</span></div>
+      <div class="rhead"><div class="rnum">5</div><div class="rtitle">Зоны ответственности</div><span class="tag tminus">– приоритет 8</span></div>
       <ul>
-        <li>Появились МЧД и токены для подписания договоров</li>
-        <li>Решения и сделки перестали упираться в одного человека</li>
+        <li class="s-done">Проведены встречи 1:1 с ТОПами</li>
+        <li class="s-done">Зафиксированы зоны ответственности</li>
       </ul>
     </div>
 
     <div class="res">
-      <div class="rhead"><div class="rnum">6</div><div class="rtitle">Сопровождение клиентов</div><span class="tag">+ приоритет 7</span></div>
+      <div class="rhead"><div class="rnum">6</div><div class="rtitle">Скорость принятия решений</div><span class="tag">+ приоритет 8</span></div>
       <ul>
-        <li>Усилен отдел продаж под масштабируемые процессы сопровождения</li>
-        <li>Нанят РОП, 5 МАПов и аккаунт-менеджер</li>
-      </ul>
-      <span class="metric">★ +7 человек в продажи</span>
-    </div>
-
-    <div class="res">
-      <div class="rhead"><div class="rnum">7</div><div class="rtitle">Скрытые конфликты</div><span class="tag tminus">– приоритет 2</span></div>
-      <ul>
-        <li>Проведён онбординг юридического отдела</li>
-        <li>Усилено информирование: регулярные планёрки</li>
-        <li>Повестки в чате «Экзамус. Топы»</li>
+        <li class="s-done">Появились МЧД и токены для подписания договоров</li>
+        <li class="s-done">Решения и сделки перестали упираться в одного человека</li>
       </ul>
     </div>
 
     <div class="res">
-      <div class="rhead"><div class="rnum">8</div><div class="rtitle">Команда ТОПов</div><span class="tag tq">? много топов</span></div>
+      <div class="rhead"><div class="rnum">7</div><div class="rtitle">Сопровождение клиентов</div><span class="tag">+ приоритет 7</span></div>
       <ul>
-        <li>Команда руководителей пересобрана под новые задачи и зоны ответственности</li>
+        <li class="s-done">Усилен отдел продаж под масштабируемые процессы сопровождения</li>
+        <li class="s-done">Нанят РОП, 5 МАПов, аккаунт-менеджер и тендерный специалист</li>
       </ul>
-      <span class="metric">★ Было 9 → стало 7</span>
+      <span class="metric">★ +8 человек в продажи</span>
+    </div>
+
+    <div class="res">
+      <div class="rhead"><div class="rnum">8</div><div class="rtitle">Команда профессионалов</div><span class="tag">+ приоритет 6</span></div>
+      <ul>
+        <li class="s-done">Согласованы бюджеты на командообразующие мероприятия в двух городах: Москва и Екатеринбург</li>
+        <li class="s-prog">Запланирована общая встреча команды в конце года</li>
+      </ul>
+    </div>
+
+    <div class="res">
+      <div class="rhead"><div class="rnum">9</div><div class="rtitle">Скрытые конфликты</div><span class="tag tminus">– приоритет 2</span></div>
+      <ul>
+        <li class="s-done">Проведён онбординг юридического отдела</li>
+        <li class="s-done">Усилено информирование: регулярные планёрки</li>
+        <li class="s-done">Повестки в чате «Экзамус. Топы»</li>
+      </ul>
+    </div>
+
+    <div class="res">
+      <div class="rhead"><div class="rnum">10</div><div class="rtitle">Бекофис</div><span class="tag">+ процессы</span></div>
+      <ul>
+        <li class="s-prog">Идёт донастройка процессов, появляется прозрачность в коммуникации</li>
+        <li class="s-done">Юристы тесно работают со смежными отделами и погружаются в продукт</li>
+      </ul>
+    </div>
+
+    <div class="res">
+      <div class="rhead"><div class="rnum">11</div><div class="rtitle">Команда ТОПов</div><span class="tag tq">? много топов</span></div>
+      <ul>
+        <li class="s-prog">Команда руководителей в процессе пересборки под новые задачи и зоны ответственности</li>
+      </ul>
+      <span class="metric">★ Было 9 → сейчас 6</span>
     </div>
 
   </div>
