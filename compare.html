@@ -55,7 +55,7 @@
 <h1>Сравнительный дашборд спринтов</h1>
 <div class="meta">
   <span class="badge">Спринтов прошло: 14</span> &nbsp;
-  Обновлено: 2026-11-20 14:08 &nbsp;
+  Обновлено: 2026-11-20 14:12 &nbsp;
   <span class="nav"><a href="./">← К дашборду текущего спринта</a></span>
   
 </div>
@@ -96,7 +96,7 @@
     <div class="chart-wrap"><canvas id="topPeople"></canvas></div>
   </div>
   <div class="section">
-    <h2>Тренд по людям (по спринтам)</h2>
+    <h2>Переоценки по исполнителям (по спринтам)</h2>
     <div class="chart-wrap"><canvas id="trendPeople"></canvas></div>
   </div>
 </div>
@@ -186,8 +186,14 @@ new Chart(document.getElementById('topPeople'), {
   options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } },
 });
 
-// Тренд по людям (линии)
-const topNames = sortedPeople.slice(0, 5).map(p => p[0]);
+// Переоценки задач по исполнителям; инициаторы переоценок показаны отдельно слева.
+const totalByAssignee = {};
+history.forEach(h => h.reestimations.forEach(r => {
+  if (!r.assignee || r.assignee === 'Не назначен') return;
+  if (['Дарья Лебедева', 'Даша Лебедева', 'Артем Кислицын', 'Артём Кислицын'].includes(r.assignee)) return;
+  totalByAssignee[r.assignee] = (totalByAssignee[r.assignee] || 0) + 1;
+}));
+const topNames = Object.entries(totalByAssignee).sort((a,b) => b[1] - a[1]).slice(0, 8).map(p => p[0]);
 const colors = ['#FE4D01', '#548235', '#7B7B9E', '#C77700', '#1F3864'];
 const datasetsTrend = topNames.map((name, i) => ({
   label: name,
@@ -198,7 +204,7 @@ const datasetsTrend = topNames.map((name, i) => ({
     const seen = new Set();
     let count = 0;
     h.reestimations.forEach(r => {
-      if (r.by !== name) return;
+      if (r.assignee !== name) return;
       const id = r.key + '|' + r.at;
       if (seen.has(id)) return;
       seen.add(id); count++;
